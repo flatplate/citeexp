@@ -6,9 +6,9 @@ class RightBar extends React.Component {
     }
 
     getAuthorString(authorData) {
-        if (!authorData || authorData.length == 0) return "No authors found";
-        if (authorData.length == 1) return authorData[0].family;
-        if (authorData.length == 2) return authorData[0].family + " and " + authorData[1].family;
+        if (!authorData || authorData.length === 0) return "No authors found";
+        if (authorData.length === 1) return authorData[0].family;
+        if (authorData.length === 2) return authorData[0].family + " and " + authorData[1].family;
         else return authorData[0].family + " et. al";
     }
 

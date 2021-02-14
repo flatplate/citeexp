@@ -1,10 +1,6 @@
 import React from "react";
 
 class DoiNumberInput extends React.Component {
-    constructor(props, context) {
-        super(props, context);
-    }
-
     render() {
         return (
             <div

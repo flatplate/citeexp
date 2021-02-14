@@ -1,10 +1,6 @@
 import React from 'react';
 
 class ContextMenu extends React.Component {
-    constructor(props, context) {
-        super(props, context);
-    }
-
     render() {
         return (
             <div className="context-menu" style={{ top: this.props.y, left: this.props.x }}>
@@ -17,10 +13,6 @@ class ContextMenu extends React.Component {
 }
 
 class ContextMenuElement extends React.Component {
-    constructor(props, context) {
-        super(props, context);
-    }
-
     render() {
         return (
             <li onClick={this.props.onClick}>

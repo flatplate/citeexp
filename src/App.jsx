@@ -40,8 +40,8 @@ class App extends React.Component {
 
     addCitation(newCitation) {
         for (let i = 0; i < this.state.citations.length; i++)
-            if (this.state.citations[i].citing == newCitation.citing
-                && this.state.citations[i].cited == newCitation.cited)
+            if (this.state.citations[i].citing === newCitation.citing
+                && this.state.citations[i].cited === newCitation.cited)
                 return;
 
 
@@ -63,7 +63,7 @@ class App extends React.Component {
 
     deleteNodeFromCitations(nodeId) {
         let newCitations = this.state.citations.filter(
-            (citation) => citation.citing != nodeId && citation.cited != nodeId
+            (citation) => citation.citing !== nodeId && citation.cited !== nodeId
         );
         this.setState({ citations: newCitations });
     }
@@ -104,7 +104,7 @@ class App extends React.Component {
             allDois.push(element.citing);
             allDois.push(element.cited);
         });
-        for (const [key, value] of Object.entries(this.state.publications)) {
+        for (const [key, _] of Object.entries(this.state.publications)) {
             allDois.push(key);
         }
         let uniqueDois = allDois.filter(
@@ -190,7 +190,7 @@ class App extends React.Component {
     }
 
     getSelectedNode() {
-        if (this.state.selectedNode == null) {
+        if (this.state.selectedNode === null) {
             return {};
         }
         return {
