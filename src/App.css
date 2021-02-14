@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  background-color: #f5f5f5;
 }
 
 .App-logo {
@@ -35,4 +35,66 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.context-menu {
+  padding: 0;
+  font-size: 20px;
+  border-radius: 5px;
+  border: solid;
+  border-width: 1px;
+  border-color: #cacaca;
+  position: fixed;
+  z-index: 50;
+}
+
+.context-menu > ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.context-menu > ul > li {
+  padding: 5px;
+  margin: 0;
+  background-color: #fafafa;
+  cursor: pointer;
+}
+
+.context-menu > ul > li:hover {
+  background-color: #ff2e63;
+  color: #fafafa;
+}
+
+.doi-input {
+  padding: 10px;
+  font-size: 17px;
+  border:none;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;;
+  box-sizing: border-box;
+  border-radius: 5px 0 0 5px;
+}
+
+.doi-input:focus {
+  outline-width: 0;
+}
+
+
+.doi-button:focus {
+  outline-width: 0;
+}
+
+.doi-button { 
+  box-sizing: border-box;
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #fc5185;
+  color: white;
+  font-size: 17px;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
 }

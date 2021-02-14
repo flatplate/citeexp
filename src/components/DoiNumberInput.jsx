@@ -12,18 +12,22 @@ class DoiNumberInput extends React.Component {
                     position: "fixed",
                     bottom: 0,
                     padding: "20px",
-                    backgroundColor: "gray",
+                    backgroundColor: "#364f6b",
                     left: "50%",
-                    width: "10vw",
-                    marginLeft: "-5vw"
+                    width: "20",
+                    marginLeft: "-10vw",
+                    borderRadius: "10px 10px 0 0",
                 }}
             >
                 <input
+                    className="doi-input"
                     placeholder="doi number"
                     onChange={this.props.onChange}
                 ></input>
+
                 <button
                     onClick={this.props.onClick}
+                    className="doi-button"
                 >
                     GO
                 </button>

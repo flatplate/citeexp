@@ -5,6 +5,13 @@ class RightBar extends React.Component {
         super(props, context);
     }
 
+    getAuthorString(authorData) {
+        if (!authorData || authorData.length == 0) return "No authors found";
+        if (authorData.length == 1) return authorData[0].family;
+        if (authorData.length == 2) return authorData[0].family + " and " + authorData[1].family;
+        else return authorData[0].family + " et. al";
+    }
+
     render() {
         console.log(this.props.node);
         return (
@@ -15,89 +22,43 @@ class RightBar extends React.Component {
                     top: 0,
                     height: "100vh",
                     width: "20vw",
-                    backgroundColor: "#fafafa",
+                    backgroundColor: "#364f6b",
+                    color: "white",
+                    overflowY: "scroll",
+                    overflowX: "hidden",
                 }}
             >
                 <div
                     style={{
                         padding: "20px",
-                        fontSize: "36px",
+                        fontSize: "24px",
                         fontWeight: "bold",
                         textDecoration: null,
                     }}
                 >
-                    <a href={"https://doi.org/" + this.props.node.id}>
-                        {this.props.node.name || "No Title Found"}
+                    <a href={"https://doi.org/" + this.props.node.id} style={{ textDecoration: "none", color: "white" }}>
+                        {this.props.node.title || "No Title Found"}
                     </a>
                 </div>
                 <div
                     style={{
+                        padding: "0",
+                        paddingLeft: "20px",
+                        fontSize: "16px",
+                        fontWeight: "light",
+                    }}
+                >
+                   {this.getAuthorString(this.props.node.author)}   
+                </div>
+                <hr style={{margin: "20px", border: "none", borderTop: "1px solid #677687", }}></hr>
+                <div
+                    style={{
                         padding: "20px",
-                        fontSize: "18px",
+                        fontSize: "14px",
+                        paddingTop: "0"
                     }}
                 >
-                    Paper abstract Lorem ipsum dolor sit amet, consectetur
-                    adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis
-                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                    commodo consequat. Duis aute irure dolor in reprehenderit in
-                    voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum.
-                </div>
-                <div
-                    style={{
-                        margin: "20px",
-                    }}
-                >
-                    <button
-                        style={{
-                            backgroundColor: "lightgreen",
-                            width: "100%",
-                            border: "none",
-                            padding: "12px",
-                        }}
-                        onClick={(e) =>
-                            this.props.extend &&
-                            this.props.extend(this.props.node)
-                        }
-                    >
-                        Extend
-                    </button>
-                </div>
-                <div
-                    style={{
-                        margin: "20px",
-                    }}
-                >
-                    <button
-                        style={{
-                            backgroundColor: "pink",
-                            width: "100%",
-                            border: "none",
-                            padding: "12px",
-                        }}
-                        onClick={(e) =>
-                            this.props.deleteNode &&
-                            this.props.deleteNode(this.props.node)
-                        }
-                    >
-                        Delete
-                    </button>
-                    <button
-                        style={{
-                            backgroundColor: "#f2a154",
-                            width: "100%",
-                            border: "none",
-                            padding: "12px",
-                        }}
-                        onClick={(e) =>
-                            this.props.updateMetadata &&
-                            this.props.updateMetadata()
-                        }
-                    >
-                        Fetch Metadata
-                    </button>
+                    {this.props.node.abstract || "No abstract found"}
                 </div>
             </div>
         );
