@@ -1,10 +1,6 @@
 import React from "react";
 
 class RightBar extends React.Component {
-    constructor(props, context) {
-        super(props, context);
-    }
-
     getAuthorString(authorData) {
         if (!authorData || authorData.length === 0) return "No authors found";
         if (authorData.length === 1) return authorData[0].family;

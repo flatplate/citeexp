@@ -104,7 +104,7 @@ class App extends React.Component {
             allDois.push(element.citing);
             allDois.push(element.cited);
         });
-        for (const [key, _] of Object.entries(this.state.publications)) {
+        for (const key of Object.keys(this.state.publications)) {
             allDois.push(key);
         }
         let uniqueDois = allDois.filter(
